@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+
+apply plugin: "groovy"
+apply plugin: "maven"
+
+archivesBaseName = "iconplus"
+group = 'com.github.bkassis'
+version = '0.1.0'
+
+repositories {
+    mavenCentral ()
+}
+
+dependencies {
+    compile gradleApi ()
+    compile 'com.android.tools.build:gradle:1.0.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${System.properties['user.home']}/.m2/repository"
+        }
+    }
+}
+
